@@ -4,7 +4,7 @@ function countUniqueEmails(emailFile) {
   // do work here
 
   let newObj = emailFile.emails.reduce(function(p, c) {
-    if (c.email in p) {
+    if (p.hasOwnProperty(c.email)) {
       p[c.email]++;
     } else {
       p[c.email] = 1;
