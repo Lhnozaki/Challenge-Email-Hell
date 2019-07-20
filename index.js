@@ -3,16 +3,14 @@ const emailLog = require("./email_log.json");
 function countUniqueEmails(emailFile) {
   // do work here
 
-  let newObj = emailFile.emails.reduce(function(p, c) {
-    if (p.hasOwnProperty(c.email)) {
-      p[c.email]++;
+  return emailFile.emails.reduce(function(emailCount, user) {
+    if (emailCount.hasOwnProperty(user.email)) {
+      emailCount[user.email]++;
     } else {
-      p[c.email] = 1;
+      emailCount[user.email] = 1;
     }
-    return p;
+    return emailCount;
   }, {});
-
-  return newObj;
 }
 
 console.log(countUniqueEmails(emailLog));
